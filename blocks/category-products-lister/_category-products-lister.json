@@ -1,0 +1,282 @@
+{
+  "definitions": [
+    {
+      "title": "Category Products Lister",
+      "id": "category-products-lister",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/block/v1/block",
+            "template": {
+              "name": "Category Products Lister",
+              "model": "category-products-lister",
+              "key-value": true
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "category-products-lister",
+      "fields": [
+        {
+          "component": "tab",
+          "label": "Basic",
+          "name": "basic"
+        },
+        {
+          "component": "number",
+          "name": "limit",
+          "label": "Product Limit",
+          "valueType": "number",
+          "value": 0,
+          "min": 0,
+          "description": "Maximum number of products to display. Set to 0 to show all products."
+        },
+        {
+          "component": "aem-content",
+          "name": "folder",
+          "label": "Products Folder (Content Fragments)",
+          "multi": false,
+          "validation": { "rootPath": "/content/dam" }
+        },
+        {
+          "component": "aem-tag",
+          "name": "cqTags",
+          "label": "Category Tags",
+          "valueType": "string",
+          "rootPath": "/content/cq:tags"
+        },
+        {
+          "component": "select",
+          "name": "cards-per-row",
+          "label": "Cards Per Row",
+          "valueType": "string",
+          "value": "5",
+          "description": "Number of cards to display per row on desktop",
+          "options": [
+            { "name": "3", "value": "3" },
+            { "name": "4", "value": "4" },
+            { "name": "5", "value": "5" }
+          ]
+        },
+        {
+          "component": "boolean",
+          "name": "enableaddtocartattileview",
+          "label": "Enable Add to Cart at Tile View",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "When enabled, each product card shows an Add to Cart button directly in the listing view."
+        },
+        {
+          "component": "text",
+          "name": "addtocarteventtype",
+          "label": "Add to Cart Event Type",
+          "value": "",
+          "valueType": "string",
+          "description": "Custom event name to dispatch when the Add to Cart button is clicked.",
+          "condition": {
+            "==": [
+              { "var": "enableaddtocartattileview" },
+              true
+            ]
+          }
+        },
+        {
+          "component": "select",
+          "name": "style",
+          "label": "Style Variant",
+          "valueType": "string",
+          "value": "",
+          "description": "Visual style variant for the product listing",
+          "options": [
+            { "name": "Default", "value": "" },
+            { "name": "No Border", "value": "no-border" },
+            { "name": "Carousel", "value": "carousel" }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "heading",
+          "label": "Carousel Heading",
+          "value": "",
+          "valueType": "string",
+          "description": "Heading text displayed above the carousel.",
+          "condition": {
+            "==": [
+              { "var": "style" },
+              "carousel"
+            ]
+          }
+        },
+        {
+          "component": "text",
+          "name": "learn-more-label",
+          "label": "Learn More Label",
+          "value": "Learn more",
+          "valueType": "string",
+          "description": "Label for the learn more button in the carousel.",
+          "condition": {
+            "==": [
+              { "var": "style" },
+              "carousel"
+            ]
+          }
+        },
+        {
+          "component": "boolean",
+          "name": "no-background",
+          "label": "No Background",
+          "value": "false",
+          "valueType": "boolean",
+          "description": "Remove the media overlay and image brightness filter when toggled on."
+        },
+        {
+          "component": "text",
+          "name": "custom-class",
+          "label": "Custom class",
+          "value": "",
+          "valueType": "string",
+          "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "tab",
+          "label": "Mobile Specific",
+          "name": "mobileSpecific"
+        },
+        {
+          "component": "select",
+          "name": "mobilelayout",
+          "label": "Layout",
+          "valueType": "string",
+          "value": "horizontal",
+          "options": [
+            {
+              "name": "Vertical/Grid",
+              "value": "vertical/grid"
+            },
+            {
+              "name": "Horizontal",
+              "value": "horizontal"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "mobileimagestyle",
+          "label": "Image Resize Mode",
+          "valueType": "string",
+          "value": "contain",
+          "options": [
+            {
+              "name": "Contain",
+              "value": "contain"
+            },
+            {
+              "name": "Cover",
+              "value": "cover"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "mobileitemrenderer",
+          "label": "Item variant",
+          "valueType": "string",
+          "value": "image-text-one-line",
+          "description": "Image and text in one line works only with Vertical/Grid layout",
+          "options": [
+            {
+              "name": "Image and text in one line",
+              "value": "image-text-one-line"
+            },
+            {
+              "name": "Image and text overlay",
+              "value": "overlay"
+            },
+            {
+              "name": "Image and text below",
+              "value": "stacked"
+            },
+            {
+              "name": "Single Image",
+              "value": "image"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "mobileitemsinrow",
+          "label": "Items in row",
+          "value": "",
+          "valueType": "number",
+          "description": "Number of items per row (1-12). Applies only when Layout is Vertical/Grid"
+        },
+        {
+          "component": "text",
+          "name": "mobileimagewidth",
+          "label": "Image width",
+          "value": "",
+          "valueType": "number",
+          "description": "Image width on mobile, in pixels. Leave empty for the default"
+        },
+        {
+          "component": "text",
+          "name": "mobileitemheight",
+          "label": "Item height",
+          "value": "",
+          "valueType": "number",
+          "description": "Item height on mobile, in pixels. Leave empty for the default"
+        },
+        {
+          "component": "select",
+          "name": "mobilesort",
+          "label": "Sort by",
+          "valueType": "string",
+          "value": "none",
+          "options": [
+            {
+              "name": "Name (A-Z)",
+              "value": "alphabetical"
+            },
+            {
+              "name": "Name (Z-A)",
+              "value": "alphabetical-reverse"
+            },
+            {
+              "name": "None",
+              "value": "none"
+            }
+          ]
+        },
+        {
+          "component": "text",
+          "name": "mobilecategoryfilter",
+          "label": "Category filter",
+          "value": "",
+          "valueType": "string",
+          "description": "Categories to show, comma-separated (e.g. Electric or Hybrid, Fuel). Leave empty to use the categories of the products in the folder"
+        },
+        {
+          "component": "text",
+          "valueType": "string",
+          "name": "custommobilestyle",
+          "label": "Custom Mobile Style",
+          "value": "",
+          "multi": true,
+          "description": "Custom styles for the block on mobile"
+        }
+      ]
+    }
+  ],
+  "filters": [
+    {
+      "id": "category-products-lister",
+      "components": []
+    }
+  ]
+}
+
+

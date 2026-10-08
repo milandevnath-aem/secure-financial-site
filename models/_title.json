@@ -1,0 +1,180 @@
+{
+  "definitions": [
+    {
+      "title": "Title",
+      "id": "title",
+      "plugins": {
+        "xwalk": {
+          "page": {
+            "resourceType": "core/franklin/components/title/v1/title",
+            "template": {
+              "model": "title"
+            }
+          }
+        }
+      }
+    }
+  ],
+  "models": [
+    {
+      "id": "title",
+      "fields": [
+        {
+          "component": "tab",
+          "label": "Basic",
+          "name": "basic"
+        },
+        {
+          "component": "text",
+          "name": "title",
+          "label": "Title"
+        },
+        {
+          "component": "select",
+          "name": "titleType",
+          "label": "Title Type",
+          "options": [
+            {
+              "name": "h1",
+              "value": "h1"
+            },
+            {
+              "name": "h2",
+              "value": "h2"
+            },
+            {
+              "name": "h3",
+              "value": "h3"
+            },
+            {
+              "name": "h4",
+              "value": "h4"
+            },
+            {
+              "name": "h5",
+              "value": "h5"
+            },
+            {
+              "name": "h6",
+              "value": "h6"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "alignment",
+          "label": "Alignment",
+          "options": [
+            {
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "name": "Center",
+              "value": "center"
+            },
+            {
+              "name": "Right",
+              "value": "right"
+            }
+          ]
+        },
+        {
+          "component": "tab",
+          "label": "Mobile Specific",
+          "name": "mobileSpecific"
+        },
+        {
+          "component": "select",
+          "name": "mobilesize",
+          "label": "Size",
+          "valueType": "string",
+          "value": "",
+          "description": "Title size on mobile. Default follows Title Type",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "X Small",
+              "value": "xsmall"
+            },
+            {
+              "name": "Small",
+              "value": "small"
+            },
+            {
+              "name": "Medium",
+              "value": "medium"
+            },
+            {
+              "name": "Large",
+              "value": "large"
+            },
+            {
+              "name": "X Large",
+              "value": "xlarge"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "mobileweight",
+          "label": "Weight",
+          "valueType": "string",
+          "value": "",
+          "description": "Font weight on mobile. Default is bold",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Light",
+              "value": "light"
+            },
+            {
+              "name": "Regular",
+              "value": "regular"
+            },
+            {
+              "name": "Bold",
+              "value": "bold"
+            },
+            {
+              "name": "Black",
+              "value": "black"
+            }
+          ]
+        },
+        {
+          "component": "select",
+          "name": "mobiletextalignment",
+          "label": "Text Alignment",
+          "valueType": "string",
+          "value": "",
+          "description": "Text alignment on mobile. Default is left",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Left",
+              "value": "left"
+            },
+            {
+              "name": "Center",
+              "value": "center"
+            },
+            {
+              "name": "Right",
+              "value": "right"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
