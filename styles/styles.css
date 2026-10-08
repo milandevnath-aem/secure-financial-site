@@ -945,6 +945,36 @@ main .section[data-section-status="loaded"] > .default-content-wrapper {
   overflow: visible;
 }
 
+/* Prevent schedule-consultation FOUC: show a skeleton until loaded. */
+.schedule-consultation.block[data-block-status="initialized"],
+.schedule-consultation.block[data-block-status="loading"] {
+  position: relative;
+  min-height: 560px;
+  overflow: hidden;
+}
+
+.schedule-consultation.block[data-block-status="initialized"] > *,
+.schedule-consultation.block[data-block-status="loading"] > * {
+  visibility: hidden;
+}
+
+.schedule-consultation.block[data-block-status="initialized"]::before,
+.schedule-consultation.block[data-block-status="loading"]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background:
+    linear-gradient(var(--skeleton-block-color), var(--skeleton-block-color)) 24px 24px / calc(100% - 48px) 40px no-repeat,
+    linear-gradient(var(--skeleton-block-color), var(--skeleton-block-color)) 24px 88px / calc(100% - 48px) 420px no-repeat;
+  z-index: 2;
+}
+
+.schedule-consultation.block[data-block-status="loaded"] {
+  min-height: 0;
+  overflow: visible;
+}
+
 /* Prevent insurance FOUC: show a skeleton until loaded. */
 .insurance.block[data-block-status="initialized"],
 .insurance.block[data-block-status="loading"] {
