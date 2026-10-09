@@ -904,6 +904,24 @@
         "name": "mobileSpecific"
       },
       {
+        "component": "select",
+        "name": "mobilelayout",
+        "label": "Layout",
+        "valueType": "string",
+        "value": "horizontal",
+        "description": "How this section's items are laid out in the mobile app",
+        "options": [
+          {
+            "name": "Vertical",
+            "value": "vertical"
+          },
+          {
+            "name": "Horizontal",
+            "value": "horizontal"
+          }
+        ]
+      },
+      {
         "component": "text",
         "name": "custommobilestyle",
         "label": "Custom Mobile Style",
