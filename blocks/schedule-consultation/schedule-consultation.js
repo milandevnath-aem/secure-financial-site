@@ -16,7 +16,6 @@ const SHORT_DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const SHORT_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const DEFAULTS = {
-  formTitle: 'Schedule a consultation',
   slotLabel: 'Next Available Slots',
   submitLabel: 'Schedule Call',
   successMessage: 'Thank you! Your consultation has been scheduled. We will confirm shortly.',
@@ -47,7 +46,7 @@ function applyButtonConfigToSubmitButton(block, config) {
 }
 
 function buildFormDef(config) {
-  const formTitle = config['form-title'] || DEFAULTS.formTitle;
+  const formTitle = String(config['form-title'] ?? '').trim();
   const submitLabel = config['submit-label'] || DEFAULTS.submitLabel;
 
   return {
@@ -55,12 +54,14 @@ function buildFormDef(config) {
     fieldType: 'form',
     appliedCssClassNames: 'schedule-consultation-form',
     items: [
-      {
+      // The heading is omitted entirely when no title is authored, rather than falling back to a
+      // default: an unauthored field means the author wants no title, not a generic one.
+      ...(formTitle ? [{
         id: 'heading-schedule-consultation',
         fieldType: 'heading',
         label: { value: formTitle },
         appliedCssClassNames: 'col-12 sc-form-title',
-      },
+      }] : []),
       {
         id: 'panel-main',
         name: 'main',
