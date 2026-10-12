@@ -225,9 +225,13 @@
           "name": "mobilelayout",
           "label": "Layout",
           "valueType": "string",
-          "value": "horizontal",
+          "value": "",
           "description": "How this section's items are laid out in the mobile app",
           "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
             {
               "name": "Vertical",
               "value": "vertical"

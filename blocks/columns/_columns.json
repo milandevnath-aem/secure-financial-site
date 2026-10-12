@@ -82,9 +82,13 @@
           "name": "mobilelayout",
           "label": "Layout",
           "valueType": "string",
-          "value": "horizontal",
+          "value": "",
           "description": "How this block's columns are laid out in the mobile app",
           "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
             {
               "name": "Vertical",
               "value": "vertical"
