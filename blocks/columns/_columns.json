@@ -38,6 +38,11 @@
       "id": "columns",
       "fields": [
         {
+          "component": "tab",
+          "label": "Basic",
+          "name": "basic"
+        },
+        {
           "component": "text",
           "valueType": "number",
           "name": "columns",
@@ -66,6 +71,29 @@
           "value": "",
           "valueType": "string",
           "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "tab",
+          "label": "Mobile Specific",
+          "name": "mobileSpecific"
+        },
+        {
+          "component": "select",
+          "name": "mobilelayout",
+          "label": "Layout",
+          "valueType": "string",
+          "value": "horizontal",
+          "description": "How this block's columns are laid out in the mobile app",
+          "options": [
+            {
+              "name": "Vertical",
+              "value": "vertical"
+            },
+            {
+              "name": "Horizontal",
+              "value": "horizontal"
+            }
+          ]
         }
       ]
     },
