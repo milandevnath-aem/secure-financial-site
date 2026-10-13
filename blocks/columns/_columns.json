@@ -143,6 +143,33 @@
           "value": "",
           "valueType": "string",
           "description": "Space-separated class names to add to the block"
+        },
+        {
+          "component": "tab",
+          "label": "Mobile Specific",
+          "name": "mobileSpecific"
+        },
+        {
+          "component": "select",
+          "name": "mobilelayout",
+          "label": "Layout",
+          "valueType": "string",
+          "value": "",
+          "description": "How this column's items are laid out in the mobile app",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Vertical",
+              "value": "vertical"
+            },
+            {
+              "name": "Horizontal",
+              "value": "horizontal"
+            }
+          ]
         }
       ]
     }
