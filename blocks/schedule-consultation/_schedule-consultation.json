@@ -40,7 +40,7 @@
           "label": "Slots Label",
           "value": "",
           "valueType": "string",
-          "description": "Line above the slot picker. Leave empty to use \"Next Available Slots\"."
+          "description": "Line above the slot picker. Leave empty for no label."
         },
         {
           "component": "text",

@@ -16,7 +16,6 @@ const SHORT_DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const SHORT_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const DEFAULTS = {
-  slotLabel: 'Next Available Slots',
   submitLabel: 'Schedule Call',
   successMessage: 'Thank you! Your consultation has been scheduled. We will confirm shortly.',
   dataLayerKey: 'consultation',
@@ -103,9 +102,16 @@ function buildTimeSlotPicker(config = {}, dataLayerKey, slotLabel) {
   const wrapper = document.createElement('div');
   wrapper.className = 'sc-slot-picker';
 
-  const labelEl = document.createElement('p');
-  labelEl.className = 'sc-slot-picker__label';
-  labelEl.textContent = slotLabel || DEFAULTS.slotLabel;
+  // An unauthored label means the author wants none, not a generic one - the same
+  // rule the form title follows. Without this the picker always carried a caption,
+  // which read as a duplicate heading whenever the form title said the same thing.
+  const label = String(slotLabel ?? '').trim();
+  let labelEl = null;
+  if (label) {
+    labelEl = document.createElement('p');
+    labelEl.className = 'sc-slot-picker__label';
+    labelEl.textContent = label;
+  }
 
   const content = document.createElement('div');
   content.className = 'sc-slot-picker__content';
@@ -126,7 +132,7 @@ function buildTimeSlotPicker(config = {}, dataLayerKey, slotLabel) {
   nextBtn.innerHTML = NAV_ARROW_ICON;
 
   content.append(prevBtn, columnsEl, nextBtn);
-  wrapper.append(labelEl, content);
+  wrapper.append(...(labelEl ? [labelEl] : []), content);
 
   function isSelected(val) {
     return multiple ? selection.includes(val) : selection === val;
