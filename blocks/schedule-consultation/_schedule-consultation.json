@@ -32,7 +32,7 @@
           "label": "Form Title",
           "value": "",
           "valueType": "string",
-          "description": "Heading shown above the slots. Leave empty to use \"Schedule a consultation\"."
+          "description": "Heading shown above the slots. Leave empty for no heading."
         },
         {
           "component": "text",
