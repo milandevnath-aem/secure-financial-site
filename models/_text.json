@@ -20,6 +20,11 @@
       "id": "text",
       "fields": [
         {
+          "component": "tab",
+          "label": "Basic",
+          "name": "basic"
+        },
+        {
           "component": "richtext",
           "name": "text",
           "value": "",
