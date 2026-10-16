@@ -16,7 +16,7 @@ const SHORT_DAY_NAMES = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const SHORT_MONTH_NAMES = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const DEFAULTS = {
-  submitLabel: 'Schedule Call',
+  buttonLabel: 'Schedule Call',
   successMessage: 'Thank you! Your consultation has been scheduled. We will confirm shortly.',
   dataLayerKey: 'consultation',
 };
@@ -46,7 +46,7 @@ function applyButtonConfigToSubmitButton(block, config) {
 
 function buildFormDef(config) {
   const formTitle = String(config['form-title'] ?? '').trim();
-  const submitLabel = config['submit-label'] || DEFAULTS.submitLabel;
+  const buttonLabel = config['button-label'] || DEFAULTS.buttonLabel;
 
   return {
     id: 'schedule-consultation',
@@ -71,7 +71,7 @@ function buildFormDef(config) {
             name: 'submitButton',
             fieldType: 'button',
             buttonType: 'submit',
-            label: { value: submitLabel },
+            label: { value: buttonLabel },
             appliedCssClassNames: 'submit-wrapper col-12',
           },
         ],

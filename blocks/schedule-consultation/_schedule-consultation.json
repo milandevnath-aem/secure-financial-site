@@ -44,8 +44,8 @@
         },
         {
           "component": "text",
-          "name": "submit-label",
-          "label": "Submit Label",
+          "name": "button-label",
+          "label": "Button Label",
           "value": "",
           "valueType": "string",
           "description": "Button text. Leave empty to use \"Schedule Call\"."
