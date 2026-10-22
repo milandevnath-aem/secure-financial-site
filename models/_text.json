@@ -52,6 +52,32 @@
           "valueType": "string[]",
           "multi": true,
           "description": "Custom styles for the text on mobile"
+        },
+        {
+          "component": "select",
+          "name": "mobilelinkstyle",
+          "label": "Link Style",
+          "valueType": "string",
+          "value": "",
+          "description": "How links inside this text render in the mobile app",
+          "options": [
+            {
+              "name": "Default",
+              "value": ""
+            },
+            {
+              "name": "Button",
+              "value": "button"
+            },
+            {
+              "name": "Button in place",
+              "value": "split"
+            },
+            {
+              "name": "Link",
+              "value": "link"
+            }
+          ]
         }
       ]
     }
